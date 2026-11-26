@@ -1,0 +1,27 @@
+# Python / ambientes virtuais
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# VS Code / sistema operacional
+.vscode/*
+!.vscode/settings.json
+.DS_Store
+Thumbs.db
+
+# Dados locais, banco DuckDB e exports pesados (ajuste se quiser versionar algum arquivo pequeno)
+data/raw/
+data/bronze/
+data/silver/
+data/gold/
+*.duckdb
+*.duckdb.wal
+*.parquet
+*.ods
+*.csv

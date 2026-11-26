@@ -1,0 +1,20 @@
+{
+    "duckdb.databases": [
+        {
+            "alias": "ans_database",
+            "type": "file",
+            "path": "warehouse/ans_database.duckdb",
+            "attached": false,
+            "readOnly": false
+        }
+    ],
+    "duckdb.defaultDatabase": "ans_database",
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.parquet": "duckdb.dataFileViewer",
+        "*.xlsx": "duckdb.dataFileViewer",
+        "*.csv": "duckdb.dataFileViewer",
+        "*.tsv": "duckdb.dataFileViewer",
+        "*.ods": "duckdb.tableViewer"
+    }
+}
