@@ -4,6 +4,14 @@ Pipeline de dados utilizando **Python** e **DuckDB** seguindo a arquitetura **Me
 
 ---
 
+## Decisão de Arquitetura e Evolução para Produção
+
+* **Adequação ao escopo do desafio:** como o volume de dados da ANS é moderado (não configura cenário de *Big Data*), o projeto tem caráter temporário/avaliativo e o prazo é curto, optou-se por uma stack leve, local e reprodutível com **Python + DuckDB** e exportação analítica para **Power BI**, evitando o custo de configurar infraestrutura de servidor ou ferramentas pesadas apenas para o teste.
+* **Aderência conceitual ao fluxo de ETL:** embora o ambiente produtivo de referência envolva extração, *staging*/transformação em banco relacional e camada analítica/BI, a separação em camadas (`bronze` → `silver` → `gold`) mantém a mesma lógica de *staging*, padronização e preparação de dados analíticos antes da visualização.
+* **Limitações do modelo local e como escalaria em produção:** por ser um banco *embedded* em arquivo local (ignorado no Git), não expõe conexão remota compartilhada por padrão nem entrega o `.duckdb` pronto via repositório — quem executa roda os scripts localmente. Em um ambiente contínuo de produção, o mesmo desenho lógico pode ser conectado a um banco em servidor (como PostgreSQL), agendado em orquestrador/rotina automatizada e plugado à camada de BI sem reescrever as regras de negócio.
+
+---
+
 ## Arquitetura do Projeto
 
 O projeto organiza o processamento em camadas incrementais para separar ingestão bruta, padronização/qualidade e consumo analítico:
